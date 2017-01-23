@@ -1,10 +1,10 @@
 #include "echo.h"
 
-#include <muduo/net/EventLoop.h>
-#include <boost/bind.h>
+#include <muduo/base/Logging.h>
+#include <boost/bind.hpp>
 
 EchoServer::EchoServer(muduo::net::EventLoop *loop, 
-		muduo::net:InetAddress &listenAddr)
+		const muduo::net::InetAddress &listenAddr)
 	: server_(loop, listenAddr, "EchoServer")
 {
 	server_.setConnectionCallback(boost::bind(&EchoServer::onConnection, this, _1));
