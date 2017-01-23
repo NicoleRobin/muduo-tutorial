@@ -6,17 +6,17 @@
 class EchoServer
 {
 public:
-	EchoServer(muduo::net::EventLoop *loop, const muduo::net::InetAddresss &listenAddr);
-	void Start();	// call _server.Start();
+	EchoServer(muduo::net::EventLoop *loop, const muduo::net::InetAddress &listenAddr);
+	void start();	// call _server.start();
 
 private:
-	void OnConnection(const muduo::net::TcpConnectionPtr &conn);
-	void OnMessage(const muduo::net::TcpConnectionPtr &conn, 
-			muduo::net::Buffer *buf, muduo::TimeStamp time);
+	void onConnection(const muduo::net::TcpConnectionPtr &conn);
+	void onMessage(const muduo::net::TcpConnectionPtr &conn, 
+			muduo::net::Buffer *buf, muduo::Timestamp time);
 
 private:
-	muduo::net::TcpServer _server;
+	muduo::net::TcpServer server_;
 
 };
 
-#endif /* ECHO_H_ */_
+#endif /* ECHO_H_ */
