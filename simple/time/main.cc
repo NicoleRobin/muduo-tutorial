@@ -8,7 +8,7 @@ using namespace muduo::net;
 
 int main(int argc, char **argv)
 {
-	LOG_INFO << "pid = " << getpid();
+	LOG_INFO << "pid = " << getpid() << " port = " << 2037;
 	EventLoop loop;
 	InetAddress listenAddr(2037);
 	TimeServer server(&loop, listenAddr);

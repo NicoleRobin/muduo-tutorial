@@ -7,7 +7,8 @@
 class TimeServer
 {
 public:
-	TimeServer();
+	TimeServer(muduo::net::EventLoop *loop, 
+			const muduo::net::InetAddress &listenAddr);
 	void start();
 
 private:
